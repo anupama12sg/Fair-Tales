@@ -1,10 +1,11 @@
 import lighthouse from '@lighthouse-web3/sdk';
 
-export const uploadToIPFS = async (file) => {
-  const apiKey = process.env.LIGHTHOUSE_API_KEY;
+export default async function uploadToIPFS(data) {
+  const apiKey = process.env.NEXT_PUBLIC_LIGHTHOUSE_API_KEY;
+
+  const blob = new Blob([JSON.stringify(data)], { type: 'application/json' });
+  const file = new File([blob], `${data.title}.json`);
 
   const response = await lighthouse.upload(file, apiKey);
-  console.log("File Status:", response);
-
-  return `https://ipfs.io/ipfs/${response.data.Hash}`;
-};
+  return response.data.Hash;
+}
