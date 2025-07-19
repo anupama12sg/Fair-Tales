@@ -1,3 +1,14 @@
+# **FairTales: A Censorship Resistant Story Platform**
+
+## **What is FairTales?**
+
+## **Tech Stack:**
+1. NextJS
+2. Tailwind CSS
+3. Daisy UI
+4. Rainbow + Wagmi (For waLLet connection)
+5. Lighthouse SDK
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
