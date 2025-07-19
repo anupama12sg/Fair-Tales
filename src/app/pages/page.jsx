@@ -1,6 +1,8 @@
+"use client"
+
 import { useState } from "react";
-import StoryEditor from "../components/ui/StoryEditor";
-import uploadToIPFS from "../lib/uploadToIPFS";
+import StoryEditor from "../../components/ui/StoryEditor";
+// import uploadToIPFS from "../../lib/uploadToIPFS.js";
 
 export default function WritePage() {
   const [cid, setCid] = useState(null);

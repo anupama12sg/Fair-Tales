@@ -11,6 +11,7 @@ export default function HomePage() {
       <WalletConnectButton />
       <FileUploader />
       <StoryEditor />
+      
     </main>
   );
 }

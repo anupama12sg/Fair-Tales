@@ -47,10 +47,10 @@ export default function StoryPage() {
             }
         }
 
-        fetchStory();
+        // fetchStory();
     }, [id]);
 
-    if (!story) return <p className="p-4">Loading...</p>;
+    if (!story) return <p className="p-4">Loading...{id}</p>;
 
     return (
         <div className="p-4 max-w-3xl mx-auto">
@@ -65,7 +65,7 @@ export default function StoryPage() {
                 <button onClick={() => setVotes(votes + 1)}>
                     👍 Upvote ({votes})
                 </button>
-            </div>
+            </div> 
         </div>
     );
 }
