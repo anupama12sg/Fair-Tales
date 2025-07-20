@@ -27,6 +27,10 @@ export default function StoryPage() {
   const [story, setStory] = useState(null);
   const [votes, setVotes] = useState(0);
 
+  const [comments, setComments] = useState([]);
+  const [newComment, setNewComment] = useState('');
+  const [commenterAddress, setCommenterAddress] = useState('0x1234...abcd'); // Replace this with connected wallet if needed
+
   useEffect(() => {
     if (!id) return;
 
@@ -44,6 +48,21 @@ export default function StoryPage() {
 
     fetchStory();
   }, [id]);
+
+  async function handleAddComment() {
+    if (!newComment) return;
+
+    const ensName = await resolveENS(commenterAddress);
+
+    const commentData = {
+      id: Date.now(),
+      text: newComment,
+      author: ensName,
+    };
+
+    setComments((prev) => [...prev, commentData]);
+    setNewComment('');
+  }
 
   if (!story) return <p className="p-4">Loading...</p>;
 
@@ -63,8 +82,39 @@ export default function StoryPage() {
         👍 Upvote ({votes})
       </button>
 
-      <div className="prose">
+      <div className="prose mb-6">
         <ReactMarkdown>{story.content}</ReactMarkdown>
+      </div>
+
+      {/* Comments Section */}
+      <div className="mt-6">
+        <h2 className="text-lg font-semibold mb-2">Comments</h2>
+
+        <div className="mb-4">
+          <textarea
+            value={newComment}
+            onChange={(e) => setNewComment(e.target.value)}
+            className="w-full p-2 border rounded mb-2"
+            rows="2"
+            placeholder="Write your comment..."
+          />
+          <button
+            onClick={handleAddComment}
+            className="btn btn-primary btn-sm"
+          >
+            Add Comment
+          </button>
+        </div>
+
+        <div>
+          {comments.length === 0 && <p className="text-gray-500">No comments yet.</p>}
+          {comments.map((comment) => (
+            <div key={comment.id} className="border-b py-2">
+              <p className="text-gray-700">{comment.text}</p>
+              <p className="text-xs text-gray-500">— {comment.author}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
