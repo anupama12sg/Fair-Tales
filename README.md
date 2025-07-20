@@ -28,6 +28,12 @@ FairTales is built with the vision of ensuring fairness, freedom of expression &
 4. **Rainbow + Wagmi + Viem** Wallet Connection for Wallet connection, ENS resolution & blockchain interactions
 5. **Lighthouse SDK** for decentralized storage on IPFS
 
+## 🚀 **What's Next for FairTales?**
+ 1. On-chain upvotes with smart contracts
+ 2. Integration with decentralized identity systems
+ 3. Public feed with community-curated stories
+ 4. Reputation system for authors and readers
+
 ## 🤝 **Credits**
 FairTales — Built with purpose for the Tech Fairness Hackathon, crafted with care by Anupama Singh.
 
